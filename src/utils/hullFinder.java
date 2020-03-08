@@ -10,14 +10,13 @@ public class hullFinder {
     }
 
     int findLeftMost() {
-        leftmost = w.points.get(w.points.size()-1);
+        leftmost = w.points.get(0);
         int i=0;
-        for (point p : w.points) {
-            if (p.x < leftmost.x) {
-                leftmost = p;
+        for (i=0;i<w.points.size();i++){
+            if (w.points.get(i).x < leftmost.x) {
+                leftmost = w.points.get(i);
                 break;
             }
-            i++;
         }
         return i;
     }

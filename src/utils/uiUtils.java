@@ -6,8 +6,7 @@ import java.awt.event.*;
 
 class mouseUtils extends MouseAdapter {
     window w;
-    Random r = new Random();
-
+ 
     mouseUtils(window _w) {
         w = _w;
     }
@@ -21,6 +20,8 @@ class mouseUtils extends MouseAdapter {
 
 class keyUtils extends KeyAdapter {
     window w;
+    Random r = new Random();
+
     keyUtils(window _w) {
         this.w = _w;
     }
@@ -36,6 +37,16 @@ class keyUtils extends KeyAdapter {
             
                 this.w.hullfinder.findHull();
                 this.w.repaint();
+        }
+        //Experimental
+        else if (evt.getKeyChar() =='r') {
+            for (int i = 0; i < r.nextInt(100); i++) {
+                int x=r.nextInt(500),y=r.nextInt(500);
+                w.points.add(new point(x,y));
+                System.out.println(x+" "+y);
+           
+            }   
+              w.repaint();
         }
     }
 }
