@@ -6,15 +6,20 @@ public class hullFinder {
 
     hullFinder(window _w) {
         w = _w;
-        leftmost = w.points.get(0);
+        
     }
 
-    void findLeftMost() {
+    int findLeftMost() {
+        leftmost = w.points.get(0);
+        int i=0;
         for (point p : w.points) {
             if (p.x < leftmost.x) {
                 leftmost = p;
+                return i;
             }
+            i++;
         }
+        return -1;
     }
 
     int orientation(point p, point q, point r) {
@@ -32,13 +37,27 @@ public class hullFinder {
     }
 
     void findHull() {
+        int numOfPoints = this.w.points.size();
         // 3 points have to be there.
-        if(this.w.points.size()<3){
+        if(numOfPoints<3){
             throw new IllegalStateException("There must be 3 present points at least.");
         }
+       
         // We clean the recent hull points we determined and we start anew.
         this.w.border.clear();
-
+        int leftmostIndex =findLeftMost();
+        int pointA,pointB;
+        pointA = leftmostIndex;
+        do{
+            this.w.border.add(this.w.points.get(pointA));
+            pointB = (pointA+1) % numOfPoints;
+            for (int i = 0; i < numOfPoints;i++) {
+                if (orientation(this.w.points.get(pointA),this.w.points.get(i), this.w.points.get(pointB)) 
+                                                   == 2) 
+                   pointB = i; 
+            }
+            pointA = pointB;
+        }while(pointA != leftmostIndex);
     }
 
 }
