@@ -1,7 +1,7 @@
 # convexHull
 A graphical implementation of the Jarvis/Gift wrapping algorithm.
 
-![alt text](https://github.com/alaabenfatma/convexHull/readme/gif.gif)
+![alt text](https://github.com/alaabenfatma/convexHull/blob/master/readme/gif.gif)
 
 ### Usage
 • Use the mouse to draw the points
