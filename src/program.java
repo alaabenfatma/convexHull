@@ -10,7 +10,8 @@ public class program implements Runnable{
 
     }
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new program());
+        program p = new program();
+        p.run();
     }
 
     

@@ -15,11 +15,11 @@ public class hullFinder {
         for (point p : w.points) {
             if (p.x < leftmost.x) {
                 leftmost = p;
-                return i;
+                break;
             }
             i++;
         }
-        return -1;
+        return i;
     }
 
     int orientation(point p, point q, point r) {
@@ -49,6 +49,7 @@ public class hullFinder {
         int pointA,pointB;
         pointA = leftmostIndex;
         do{
+            if(this.w.points.get(pointA)!=null)
             this.w.border.add(this.w.points.get(pointA));
             pointB = (pointA+1) % numOfPoints;
             for (int i = 0; i < numOfPoints;i++) {

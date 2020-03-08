@@ -33,12 +33,9 @@ class keyUtils extends KeyAdapter {
             System.out.println("All points have been deleted.");
         }
         else if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            try {
-                this.w.hullfinder.findHull();
-            } catch (Exception e) {
-                System.out.println(e.toString());
-            }
             
+                this.w.hullfinder.findHull();
+                this.w.repaint();
         }
     }
 }

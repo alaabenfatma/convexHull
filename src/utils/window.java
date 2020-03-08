@@ -33,6 +33,13 @@ public class window extends JComponent {
         for (point p : points) {
             g.drawRect(p.x, p.y, 5, 5);
         }
+        if(!border.isEmpty()){
+            int i = 0;
+            for (i = 0; i < border.size()-1; i++) {
+                g.drawLine(border.get(i).x, border.get(i).y,border.get(i+1).x, border.get(i+1).y);
+            }
+            g.drawLine(border.get(i).x, border.get(i).y,border.get(0).x, border.get(0).y);
+        }
         this.setFocusable(true);
         this.requestFocusInWindow();
     }
